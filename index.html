@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID BootGames</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>JUGUEMOS A <span>ID BOOTGAMES</span></h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section id="instrucciones">
+          <div class="parrafos">
+            <p>
+              Adentremonos en este maravilloso mundo de IDBOOTGAMES en el que tu
+              objetivo es conseguir las 8 cartas secretas.
+            </p>
+            <p>Las reglas son sencillas:</p>
+            <p>
+              *Debes elegir correctamente un personaje y adivinar el apodo que
+              le pertenece
+            </p>
+            <p>
+              *Si aciertas coleccionarás su carta y obtendrás sus propiedades
+              para poder jugar con ella.
+            </p>
+            <p>*Puedes probar diferentes opciones hasta conseguir la carta.</p>
+            <p>
+              *Ten en cuenta que puedes borrar opciones de la lista si así lo
+              deseas
+            </p>
+          </div>
+
+          <form id="formulario" action="" name="formName">
+            <div class="input">
+              <input
+                type="text"
+                id="nombre"
+                placeholder="Escribe un nombre"
+                required
+              />
+              <input
+                type="text"
+                id="apodo"
+                placeholder="Su apodo es..."
+                required
+              />
+            </div>
+
+            <div class="button">
+              <button type="submit">Coleccionar carta</button>
+            </div>
+          </form>
+        </section>
+        <section class="cartas">
+            <ul id="listaNombres">
+                
+            </ul>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
