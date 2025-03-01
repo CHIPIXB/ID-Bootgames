@@ -8,14 +8,19 @@ body{
     font-size: 1rem;
 
 }
+img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
 .container{
-    max-width: 1004px;
+    max-width: 768px;
     margin: auto;
 }
 
 header{
     width: 100%;
-    height: 100px;
+    height: 80px;
     background-color: var(--primary-color);
     align-content: center;
 
@@ -32,7 +37,7 @@ header{
 }
 
 #instrucciones{
-    padding: 20px;
+
     background-color: #151D34;
     margin: 20px auto;
     padding: 25px;
@@ -40,6 +45,8 @@ header{
     border-radius: 10px;
     border: 2px solid var(--secondary-color);
     box-shadow: 10px 10px 10px;
+    background-image: url(https://wallpapersok.com/images/high/historic-calle-gran-via-madrid-0wrm4t5v9unirmd7.jpg);
+    background-size: cover;
 
 }
 
@@ -49,8 +56,6 @@ header{
     font-size: 20px;
     line-height: 1.5;
     text-align: justify;
-
-    
 }
 
 span{
@@ -60,21 +65,20 @@ span{
 #formulario {
     .input{
         text-align: center;
-        margin: 20px;
+
     }
     .button{
-        text-align: center;
-        
+        text-align: end;    
     }
 }
 
 
 button{
-    color: white;
-    width: auto;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
     padding: 12px 20px;
     border-radius: 10px;
-    background-color:var(--button-color);
+    background-color: transparent;
     font-weight: bold;
     cursor: pointer;
     transition: 0.5s;
@@ -93,7 +97,6 @@ input {
     height: 50px;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid var(--secondary-color);
     border-radius: 10px;
     color: black;
     transition: all 0.3s ease-in-out;
@@ -106,7 +109,7 @@ input {
     background-color: var(--primary-color);
     color: white;
     padding: 5px;
-    margin: 5px;
+    margin: 10px;
     border-radius: 10px;
     font-weight: 500;
     display: flex;
@@ -114,7 +117,56 @@ input {
     align-items: center;
 
 }
+.coleccionadas{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
 
+.carta {
+    display: flex;
+    width: 150px;
+    height: 200px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.carta .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.carta .front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.volteada {
+    transform: rotateY(180deg);
+}
+
+
+@import url(mediaquery.css);
 
 
 
