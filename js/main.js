@@ -21,9 +21,11 @@ function cargarDesdeLocalStorage(){
     });
 }
 cargarDesdeLocalStorage()
+
 function printOneCard(nombre, apodo, fromLocalStorage = false){
     const li = document.createElement("li")
-    li.innerHTML =`El nombre que has elegido es ${nombre} y su apodo es ${apodo} <button class = "eliminar"> X </button>`
+    li.classList.add("mi-estilo")
+    li.innerHTML =`El nombre que has elegido es <span>${nombre}</span> y su apodo es <span>${apodo}</span> <button class = "eliminar"> eliminar </button>`
 
     listName.appendChild(li)
 
@@ -41,7 +43,7 @@ function addOneCard(nombre, apodo, fromLocalStorage = false){
     cartasArray.push({nombre, apodo})
     guardarEnLocalStorage();
     printOneCard(nombre, apodo)
-    console.log("Cartas Seleccionadas", cartasArray)
+    console.log(cartasArray)
 }
 
 
