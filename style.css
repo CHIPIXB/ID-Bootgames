@@ -13,14 +13,10 @@ img{
     height: auto;
     display: block;
 }
-.container{
-    max-width: 768px;
-    margin: auto;
-}
 
 header{
     width: 100%;
-    height: 80px;
+    height: 60px;
     background-color: var(--primary-color);
     align-content: center;
 
@@ -36,138 +32,237 @@ header{
     
 }
 
-#instrucciones{
-
-    background-color: #151D34;
-    margin: 20px auto;
-    padding: 25px;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid var(--secondary-color);
-    box-shadow: 10px 10px 10px;
-    background-image: url(https://wallpapersok.com/images/high/historic-calle-gran-via-madrid-0wrm4t5v9unirmd7.jpg);
-    background-size: cover;
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 90vh;
+    margin: 0 auto;
+    gap: 10px;
+    margin-top: 10px;
 
 }
 
-.parrafos{
+#cartas-izquierda{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    margin-left: 10px;
+
+    .carta-1{
+        grid-column: 1/2;
+        background-color: green;
+        transition: 1s;
+    }
+    .carta-2{
+        background-color: violet;
+        grid-row: 2/3;
+        transition: 1s;
+        
+    }
+    .carta-3{
+        background-color: rebeccapurple;
+        transition: 1s;
+    }
+    .carta-4{
+        background-color: aqua;
+        transition: 1s;
+    }
+}
+
+#cartas-derecha{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    margin-right: 10px;
+    .carta-5{
+        background-color: salmon;
+        transition: 1s;
+    }
+    .carta-6{
+        background-color: gold;
+        transition: 1s;
+    }
+    .carta-7{
+        background-color: sandybrown;
+        transition: 1s;
+    }
+    .carta-8{
+        background-color: red;
+        transition: 1s;
+    }
+}
+
+#instrucciones{
+    border-radius: 10px;
+    background-image: url(https://wallpapersok.com/images/high/historic-calle-gran-via-madrid-0wrm4t5v9unirmd7.jpg);
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--secondary-color);
+    background-size: cover;
+    padding: 25px;
+    box-shadow: 0px 10px 10px;
+
+    .parrafos{
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: justify;
+        .reglas{
+            text-align: center;
+            margin: 20px;
+        }
+        .puntos{
+            font-size: 14px;
+        }
+    }
+}
+
+.form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
     color: white;
-    margin: 10px;
-    font-size: 20px;
-    line-height: 1.5;
-    text-align: justify;
+    margin-top: 10px;
+
+
+    input{
+        margin: 5px;
+        color: var(--secondary-color);
+        background-color: transparent;
+        border: 2px solid var(--secondary-color);
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            background-color: var(--secondary-color);
+            color: black;
+        }
+        
+    }
+    ::placeholder{
+        color: white;
+    }
+
+    button{
+        width: 120px;
+        color: var(--secondary-color);
+        background-color: transparent;
+        border: 2px solid var(--secondary-color);
+        padding: 8px 5px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            background-color: var(--secondary-color);
+            color: black;
+            border: 3px solid black 
+       }
+
+    }
+}
+
+.intentos{
+    justify-content: space-between;
+    li{
+        display: flex;
+        justify-content: space-between;
+        
+        padding: 5px;
+        border: 2px solid var(--primary-color);
+        margin: 10px 0;
+        border-radius: 5px;
+        background-color: var(--secondary-color);
+    }
+
 }
 
 span{
     color: var(--secondary-color);
 }
 
-#formulario {
-    .input{
+
+.comun-style{
+    border-radius: 10px; 
+}
+
+i{
+    display: block;
+}
+.carta-style{
+    figure{
+        padding: 0 10px;
+        i{
+            padding: 5px; 
+        }
+        img{
+            border-radius: 10px;
+        }
+    }
+    .apodo{
+        font-weight: bold;
         text-align: center;
-
+        padding: 10px 0 0 0;
+        font-style: italic;
     }
-    .button{
-        text-align: end;    
+    .descripcion{
+        margin: 8px;
+        padding: 5px;
+        border-top: 1px solid black;
+        border-bottom:  1px solid black; ;
+    }
+    .estadisticas{
+       display: flex;
+       justify-content: space-between;
+       margin: 0 20px;
+    }
+    .nombre-superior{
+        display: flex;
+        margin: 10px;
+        align-items: center;
+        justify-content: space-between;
+        :last-child{
+            font-size: 200%;
+        }
     }
 }
 
-
-button{
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
-    padding: 12px 20px;
-    border-radius: 10px;
-    background-color: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.5s;
-
-    &:hover{
-        background-color: var(--secondary-color);
-        color: black;
-    }
+.carta-1, .carta-2, .carta-3, .carta-4{
+    transform: translateX(-500%);
 }
 
-
-
-input {
-    width: 100%;
-    max-width: 400px;
-    height: 50px;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    color: black;
-    transition: all 0.3s ease-in-out;
+.carta-5, .carta-6, .carta-7, .carta-8{
+    transform: translateX(500%);
 }
 
-
-.mi-estilo {
-    border: 2px solid var(--secondary-color);
-    box-shadow: 10px 10px 10px black;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 5px;
-    margin: 10px;
-    border-radius: 10px;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-.coleccionadas{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 20px;
+.mostrar{
+    transform: translateX(0);
 }
 
-.carta {
-    display: flex;
-    width: 150px;
-    height: 200px;
-    border: 2px solid #000;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
-
-.carta .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.carta .front {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.eliminar{
     background-color: white;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    border: 2px solid black;
+    
+    &:hover{
+        cursor: pointer;
+        color: white;
+        border: 2px solid red;
+        background-color: red;
+    }
+    
 }
-.volteada {
-    transform: rotateY(180deg);
-}
+
+
 
 
 @import url(mediaquery.css);
-
-
-
-

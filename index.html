@@ -4,91 +4,262 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ID BootGames</title>
+    <script src="https://kit.fontawesome.com/e73505c52b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="./js/data.js"></script>
   </head>
   <body>
     <header>
-      <div class="container">
         <h1>JUGUEMOS A <span>ID BOOTGAMES</span></h1>
-      </div>
     </header>
 
     <main>
-      <section class="coleccionadas">
-        <div class="carta" id="carta1">
-          <div class="front">Carta 1</div>
-          <!-- <div class="back">
-            <img src="https://iddigitalschool.com/bootcamps/wp-content/uploads/2021/03/Juanan-id-bootcamps.png" alt="">
-          </div> -->
-        </div>
-        <div class="carta" id="carta2">
-          <div class="front">Carta 2</div>
-          <div class="back">Ganaste</div>
-        </div>
-        <div class="carta" id="carta3">
-          <div class="front">Carta 3</div>
-          <div class="back">Ganaste</div>
-        </div>
-        <div class="carta" id="carta4">
-          <div class="front">Carta 4</div>
-          <div class="back">Ganaste</div>
-        </div>
-        <div class="carta" id="carta5">
-          <div class="front">Carta 5</div>
-          <div class="back">Ganaste</div>
-        </div>
-        <div class="carta" id="carta6">
-          <div class="front">Carta 6</div>
-          <div class="back">Ganaste</div>
-        </div>
-        <div class="carta" id="carta7">
-          <div class="front">Carta 7</div>
-          <div class="back">Ganaste</div>
-        </div>
-        <div class="carta" id="carta8">
-          <div class="front">Carta 8</div>
-          <div class="back">Ganaste</div>
-        </div>
-      </section>
-     
       <div class="container">
+
+        <section id="cartas-izquierda">
+<!-- CARTA DE JUANAN -->
+          <div class="carta-1 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> JUANAN</i>
+              <i class="fa-brands fa-old-republic"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">Sr. Bold</p>
+
+            <p class="descripcion">Usa esta carta para que todos te entiendan cuando escribas</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 135 hp</i>
+              <i class="fa-solid fa-hand-fist"> 60 str</i>
+              <i class="fa-solid fa-shield-halved"> 100 ac</i>
+            </div>
+
+          </div>
+      
+<!-- CARTA DE CHIPI -->
+          <div class="carta-2 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> CHIPI</i>
+              <i class="fa-brands fa-jedi-order"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">La intensita</p>
+
+            <p class="descripcion">Usa esta carta para tener energía las proximas 24hrs</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 170 hp</i>
+              <i class="fa-solid fa-hand-fist"> 30 str</i>
+              <i class="fa-solid fa-shield-halved"> 40 ac</i>
+            </div>
+
+          </div>
+
+<!-- CARTA DE CORA -->
+          <div class="carta-3 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> CORA</i>
+              <i class="fa-brands fa-old-republic"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">Carpetitas</p>
+
+            <p class="descripcion">Usa esta carta para encontrar cualquier archivo perdido</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 170 hp</i>
+              <i class="fa-solid fa-hand-fist"> 40 str</i>
+              <i class="fa-solid fa-shield-halved"> 40 ac</i>
+            </div>
+
+          </div>
+      
+<!-- CARTA DE JAVIER -->
+          <div class="carta-4 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> JAVIER</i>
+              <i class="fa-brands fa-old-republic"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">Iceman</p>
+
+            <p class="descripcion">Usa esta carta para enfrentarte a cualquier situacion incómoda</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 170 hp</i>
+              <i class="fa-solid fa-hand-fist"> 60 str</i>
+              <i class="fa-solid fa-shield-halved"> 40 ac</i>
+            </div>
+
+          </div>
+        </section>
+
         <section id="instrucciones">
           <div class="parrafos">
             <p>
               Adentremonos en este maravilloso mundo de <span>IDBOOTGAMES</span> en el que tu
               objetivo es conseguir las 8 cartas secretas.
             </p>
-            <p>Las reglas son sencillas:</p>
+            <p class="reglas">Las reglas son sencillas:</p>
             <p>
-              *Debes elegir correctamente un personaje y adivinar el apodo que
-              le pertenece
+             
             </p>
-            <p>
+            <p class="puntos">
+              *Debes elegir correctamente un personaje y adivinar el apodo que
+              le pertenece.
+              <br>
               *Si aciertas coleccionarás su carta y obtendrás sus propiedades
               para poder jugar con ella.
-            </p>
-            <p>*Puedes probar diferentes opciones hasta conseguir la carta.</p>
-            <p>
+              <br>
+              *Puedes probar diferentes opciones hasta conseguir la carta.
+              <br>
               *Ten en cuenta que puedes borrar opciones de la lista si así lo
-              deseas
+              deseas.
             </p>
           </div>
+          <div class="formulario">
+            <form action=""  class="form">
 
-          <form id="formulario" action="" name="formName">
-            <div class="input">
-              <input
-                type="text"
-                id="nombre"
-                placeholder="Escribe un nombre"
-                required/>
-              <input
-                type="text"
-                id="apodo"
-                placeholder="Su apodo es..."
-                required/>
+              <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí el nombre" minlength="4" required>
+
+              <input type="text" id="apodo" name="apodo" placeholder="Escribe aquí el apodo" required>
+
+              <button type="submit">Buscar carta</button>
+            </form>
+
+            <div class="lista">
+              <ul class="intentos">
+                
+              </ul>
             </div>
 
+          </div>
+        </section>
+  
+        <section id="cartas-derecha">
+<!-- CARTA DE GIAN -->
+          <div class="carta-5 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> GIAN</i>
+              <i class="fa-brands fa-old-republic"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">El trampas</p>
+
+            <p class="descripcion">Usa esta carta para terminar un ejercicio a tiempo</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 170 hp</i>
+              <i class="fa-solid fa-hand-fist"> 50 str</i>
+              <i class="fa-solid fa-shield-halved"> 30 ac</i>
+            </div>
+
+          </div>
+
+<!-- CARTA DE JEAN -->
+          <div class="carta-6 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> JEAN</i>
+              <i class="fa-brands fa-old-republic"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">Cachorro</p>
+
+            <p class="descripcion">Usa esta carta para poder jugar a cualquier cosa con el ego al 100%</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 180 hp</i>
+              <i class="fa-solid fa-hand-fist"> 60 str</i>
+              <i class="fa-solid fa-shield-halved"> 50 ac</i>
+            </div>
+
+          </div>
+          
+
+<!-- CARTA DE MAMADY -->
+          <div class="carta-7 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> MAMADY</i>
+              <i class="fa-brands fa-old-republic"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">El sin apodo</p>
+
+            <p class="descripcion">Esta carta te proporciona una vida extra en el siguiente turno</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 175 hp</i>
+              <i class="fa-solid fa-hand-fist"> 80 str</i>
+              <i class="fa-solid fa-shield-halved"> 80 ac</i>
+            </div>
+          </div>
+
+<!-- CARTA DE DANI -->
+          <div class="carta-8 comun-style carta-style">
+            <div class="nombre-superior">
+              <i class="fa-solid fa-leaf"> Dani</i>
+              <i class="fa-brands fa-old-republic"></i>
+            </div>
+            
+            <figure>
+              <img src="./images/Global Ignore.png" alt="">
+            </figure>
+
+            <p class="apodo">Global Ignore</p>
+
+            <p class="descripcion">Usa esta carta para poder ignorar cualquier explicacion</p>
+
+
+            <div class="estadisticas">
+              <i class="fa-solid fa-heart-circle-plus"> 140 hp</i>
+              <i class="fa-solid fa-hand-fist"> 60 str</i>
+              <i class="fa-solid fa-shield-halved"> 50 ac</i>
+            </div>
+
+          </div>
+        </section>
+        
+      </div>
+     
+      
+    
+
+<!--      
             <div class="button">
               <button type="submit">Coleccionar carta</button>
             </div>
@@ -99,8 +270,8 @@
             </ul>
         </section>
         
-      </div>
-    </main>
+      </div> 
+    </main>-->
 
     <script src="./js/main.js"></script>
   </body>

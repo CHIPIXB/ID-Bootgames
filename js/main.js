@@ -1,112 +1,69 @@
-const nombre = document.querySelector("#nombre");
-const apodo = document.querySelector("#apodo");
-const form = document.querySelector("#formulario");
-const listName = document.querySelector("#listaNombres");
+const form = document.querySelector(".form")
+const inputNombre = document.querySelector('#nombre')
+const inputApodo = document.querySelector('#apodo')
+const listaIntentos = document.querySelector('.intentos')
 
-let cartasArray = JSON.parse(localStorage.getItem("cartas")) || [];
+form.addEventListener("submit", getDataForm)
 
-function guardarEnLocalStorage() {
-  localStorage.setItem("cartas", JSON.stringify(cartasArray));
+function getDataForm(event){
+  event.preventDefault()
+  const nombre = inputNombre.value.trim();
+  const apodo = inputApodo.value.trim();
+
+  const cartaAñadida = cartasCorrectas.find(obj => obj.nombre.toLowerCase() === nombre.toLowerCase() && obj.apodo.toLowerCase() === apodo.toLowerCase())
+
+  if(cartaAñadida){
+    const objId = document.querySelector(`.${cartaAñadida.id}`)
+    if(objId) {
+      objId.classList.add("mostrar")
+    }
+  }else{
+    guardarEnLocalStorage(nombre,apodo)
+    añadirALaLista(nombre, apodo)
+  }
+  form.reset()
+}
+
+function añadirALaLista(nombre, apodo){
+  const li = document.createElement("li")
+  li.textContent = `No hombre...¿Cómo vamos a llamar a ${nombre} ${apodo}?`
+
+  const botonEliminar = document.createElement("button");
+  botonEliminar.classList.add("eliminar")
+  botonEliminar.textContent = " Hazme Chucrut";
+
+  botonEliminar.addEventListener("click", function(){
+    eliminarDesdeLocalStorage(nombre, apodo);
+    li.remove()
+
+  })
+
+
+  li.appendChild(botonEliminar)
+  listaIntentos.appendChild(li)
+}
+
+function guardarEnLocalStorage(nombre, apodo){
+  let intentosGuardados = JSON.parse(localStorage.getItem("intentos")) || [];
+
+  intentosGuardados.push({nombre, apodo})
+
+  localStorage.setItem("intentos", JSON.stringify(intentosGuardados))
 }
 
 function cargarDesdeLocalStorage() {
-  listName.innerHTML = "";
+  let intentosGuardados = JSON.parse(localStorage.getItem("intentos")) || [];
 
-  cartasArray.forEach(({ nombre, apodo }) => {
-    printOneCard(nombre, apodo, true);
+  intentosGuardados.forEach(obj => {
+      añadirALaLista(obj.nombre, obj.apodo)
   });
 }
+
+function eliminarDesdeLocalStorage(nombre, apodo) {
+  let intentosGuardados = JSON.parse(localStorage.getItem("intentos")) || [];
+  intentosGuardados = intentosGuardados.filter(obj => !(obj.nombre === nombre && obj.apodo === apodo));
+  localStorage.setItem("intentos", JSON.stringify(intentosGuardados))
+}
+
 cargarDesdeLocalStorage();
 
-function printOneCard(nombre, apodo, fromLocalStorage = false) {
-  const li = document.createElement("li");
-  li.classList.add("mi-estilo");
-  li.innerHTML = `El nombre que has elegido es <span>${nombre}</span> y su apodo es <span>${apodo}</span> <button class = "eliminar"> eliminar </button>`;
-
-  listName.appendChild(li);
-
-  li.querySelector(".eliminar").addEventListener("click", () => {
-    deleteOneCard(nombre, apodo, li);
-  });
-}
-
-function addOneCard(nombre, apodo, fromLocalStorage = false) {
-  if (
-    !fromLocalStorage &&
-    cartasArray.some(
-      (carta) => carta.nombre === nombre && carta.apodo === apodo
-    )
-  ) {
-    alert("A este personaje ya le pusiste ese apodo. Prueba con otro.");
-    return;
-  }
-  cartasArray.push({ nombre, apodo });
-  guardarEnLocalStorage();
-  printOneCard(nombre, apodo);
-  console.log(cartasArray);
-
-  let cartaEncontrada = "";
-
-  if (
-    (cartaEncontrada = carta.find(
-      (carta) =>
-        carta.nombre.toLowerCase() === nombre.toLowerCase() &&
-        carta.apodo.toLowerCase() === apodo.toLowerCase()
-    ))
-  ) {
-    const cartaDefinitiva = document.getElementById(cartaEncontrada.id);
-    if (cartaDefinitiva) {
-      cartaDefinitiva.classList.add("volteada");
-    }
-  }
-}
-
-function addToListName(event) {
-  event.preventDefault();
-  const nombreValue = nombre.value;
-  const apodoValue = apodo.value;
-
-  if (nombreValue.trim() === "" || apodoValue.trim() === "") {
-    alert("¿De veras no sabes de quienes estamos hablando?");
-    return;
-  }
-  addOneCard(nombreValue, apodoValue);
-
-  form.reset();
-}
-
-form.addEventListener("submit", addToListName);
-
-function deleteOneCard(nombre, apodo, domElement) {
-  const index = cartasArray.findIndex(
-    (carta) => carta.nombre === nombre && carta.apodo === apodo
-  );
-  if (index !== -1) {
-    cartasArray.splice(index, 1);
-    guardarEnLocalStorage();
-    console.log(cartasArray);
-  }
-  domElement.remove();
-}
-
-// const cartaColeccionable = cartasCorrectas.find(
-//   (carta) =>
-//     carta.nombre.toLowerCase() === nombreValue.toLowerCase() &&
-//     carta.apodo.toLowerCase() === apodoValue.toLowerCase()
-// );
-
-// function cartaCorrecta(nombreValue, apodoValue) {
-//   return cartasCorrectas.find(
-//     (carta) => carta.nombre.toLowerCase() === nombreValue.toLowerCase() &&
-//     carta.apodo.toLowerCase() === apodoValue.toLowerCase()
-//   );
-// }
-
-// function cartaColeccionada(carta){
-//     const cartasContainer = document.querySelector("#cartasContainer")
-//     const divCarta = document.createElement("div")
-//     divCarta.classList.add("carta")
-
-//     divCarta.innerHTML = `<h3>${carta.nombre}</h3><p>${carta.apodo}</p>`
-//     cartasContainer.appendChild(divCarta)
-// }
