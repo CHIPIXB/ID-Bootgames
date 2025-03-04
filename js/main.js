@@ -1,80 +1,77 @@
-const nombre = document.querySelector('#nombre')
-const apodo = document.querySelector('#apodo')
-const form = document.querySelector('#formulario')
-const listName = document.querySelector('#listaNombres')
+const form = document.querySelector(".form")
+const inputNombre = document.querySelector('#nombre')
+const inputApodo = document.querySelector('#apodo')
+const listaIntentos = document.querySelector('.intentos')
 
+form.addEventListener("submit", getDataForm)
 
-let cartasArray = JSON.parse(localStorage.getItem("cartas")) || [];
+function getDataForm(event){
+  event.preventDefault()
+  const nombre = inputNombre.value.trim();
+  const apodo = inputApodo.value.trim();
 
+  const cartaAñadida = cartasCorrectas.find(obj => obj.nombre.toLowerCase() === nombre.toLowerCase() && obj.apodo.toLowerCase() === apodo.toLowerCase())
 
-
-function guardarEnLocalStorage(){
-    localStorage.setItem("cartas", JSON.stringify(cartasArray))
-}
-
-function cargarDesdeLocalStorage(){
-
-    listName.innerHTML= "";
-
-    cartasArray.forEach(({nombre, apodo}) => {
-        printOneCard(nombre, apodo, true)
-    });
-}
-cargarDesdeLocalStorage()
-
-function printOneCard(nombre, apodo, fromLocalStorage = false){
-    const li = document.createElement("li")
-    li.classList.add("mi-estilo")
-    li.innerHTML =`El nombre que has elegido es <span>${nombre}</span> y su apodo es <span>${apodo}</span> <button class = "eliminar"> eliminar </button>`
-
-    listName.appendChild(li)
-
-    li.querySelector('.eliminar').addEventListener('click', () => {
-        deleteOneCard(nombre, apodo, li)
-    })
-}
-
-
-function addOneCard(nombre, apodo, fromLocalStorage = false){
-    if(!fromLocalStorage && cartasArray.some(carta => carta.nombre === nombre && carta.apodo === apodo )){
-        alert('A este personaje ya le pusiste ese apodo. Prueba con otro.');
-        return;
+  if(cartaAñadida){
+    const objId = document.querySelector(`.${cartaAñadida.id}`)
+    if(objId) {
+      objId.classList.add("mostrar")
     }
-    cartasArray.push({nombre, apodo})
-    guardarEnLocalStorage();
-    printOneCard(nombre, apodo)
-    console.log(cartasArray)
+  }else{
+    guardarEnLocalStorage(nombre,apodo)
+  }
+  form.reset()
 }
 
+function añadirALaLista(nombre, apodo){
+  const li = document.createElement("li")
+  li.textContent = `No hombre...¿Cómo vamos a llamar a ${nombre} ${apodo}?`
 
-function addToListName(event){
-    event.preventDefault();
-    const nombreValue = nombre.value
-    const apodoValue = apodo.value
+  const botonEliminar = document.createElement("button");
+  botonEliminar.classList.add("eliminar")
+  botonEliminar.textContent = " Hazme Chucrut";
 
-    if(nombreValue === "" || apodoValue === ""){
-        alert("¿De veras no sabes de quienes estamos hablando?")
-        return
-    }
-    addOneCard(nombreValue, apodoValue)
-    
-    form.reset()
+  botonEliminar.addEventListener("click", function(){
+    eliminarDesdeLocalStorage(nombre, apodo);
+    li.remove()
+
+  })
+
+
+  li.appendChild(botonEliminar)
+  listaIntentos.appendChild(li)
 }
 
-form.addEventListener('submit', addToListName)
+function guardarEnLocalStorage(nombre, apodo){
+  let intentosGuardados = JSON.parse(localStorage.getItem("intentos")) || [];
 
+  const nombreApodoRepetido = intentosGuardados.some(obj => obj.nombre.toLowerCase() === nombre.toLowerCase() && obj.apodo.toLowerCase() === apodo.toLowerCase());
 
+  if (nombreApodoRepetido) {
+    alert("Ya le intentaste poner ese apodo a ese nombre, cambia alguno de los dos");
+    return;
+  }
 
-function deleteOneCard(nombre, apodo, domElement){
-    const index = cartasArray.findIndex(carta => carta.nombre === nombre && carta.apodo === apodo)
-    if(index !== -1){
-        cartasArray.splice(index, 1)
-        guardarEnLocalStorage()
-        console.log(cartasArray)
-    }
-    domElement.remove()
+  intentosGuardados.push({nombre, apodo})
 
+  localStorage.setItem("intentos", JSON.stringify(intentosGuardados))
+
+  añadirALaLista(nombre, apodo)
 }
 
+function cargarDesdeLocalStorage() {
+  let intentosGuardados = JSON.parse(localStorage.getItem("intentos")) || [];
 
+  intentosGuardados.forEach(obj => {
+      añadirALaLista(obj.nombre, obj.apodo)
+  });
+}
+
+function eliminarDesdeLocalStorage(nombre, apodo) {
+  let intentosGuardados = JSON.parse(localStorage.getItem("intentos")) || [];
+  intentosGuardados = intentosGuardados.filter(obj => !(obj.nombre === nombre && obj.apodo === apodo));
+  localStorage.setItem("intentos", JSON.stringify(intentosGuardados))
+}
+
+cargarDesdeLocalStorage();
 

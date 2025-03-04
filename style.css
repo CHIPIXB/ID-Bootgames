@@ -8,14 +8,15 @@ body{
     font-size: 1rem;
 
 }
-.container{
-    max-width: 1004px;
-    margin: auto;
+img{
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 header{
-    width: 100%;
-    height: 100px;
+    width: 100vw;
+    height: 60px;
     background-color: var(--primary-color);
     align-content: center;
 
@@ -31,91 +32,256 @@ header{
     
 }
 
-#instrucciones{
-    padding: 20px;
-    background-color: #151D34;
-    margin: 20px auto;
-    padding: 25px;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid var(--secondary-color);
-    box-shadow: 10px 10px 10px;
-
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.parrafos{
-    color: white;
-    margin: 10px;
-    font-size: 20px;
-    line-height: 1.5;
-    text-align: justify;
 
-    
+#cartas-izquierda{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    margin-left: 10px;
+
+    .carta-1{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        grid-column: 1/2;
+        transition: 1s;
+    }
+    .carta-2{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        grid-row: 2/3;
+        transition: 1s;
+        
+    }
+    .carta-3{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        transition: 1s;
+    }
+    .carta-4{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        transition: 1s;
+    }
+}
+
+#cartas-derecha{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    margin-right: 10px;
+    .carta-5{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        background-color: teal;
+        transition: 1s;
+        
+    }
+    .carta-6{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        background-color: lightgreen;
+        transition: 1s;
+        
+    }
+    .carta-7{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        background-color: sandybrown;
+        transition: 1s;
+        
+    }
+    .carta-8{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        background-color: red;
+        transition: 1s;
+        
+    }
+}
+
+#instrucciones{
+    grid-column: 2/3;
+    border-radius: 10px;
+    background-image: url(https://wallpapersok.com/images/high/historic-calle-gran-via-madrid-0wrm4t5v9unirmd7.jpg);
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--secondary-color);
+    background-size: cover;
+    padding: 25px;
+    box-shadow: 0px 10px 10px;
+    /* height: auto; */
+
+
+    .parrafos{
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: justify;
+        .reglas{
+            text-align: center;
+            margin: 20px;
+        }
+        .puntos{
+            font-size: 14px;
+        }
+    }
+}
+
+.form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+
+
+    input{
+        margin: 5px;
+        color: var(--secondary-color);
+        background-color: transparent;
+        border: 2px solid var(--secondary-color);
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            background-color: var(--secondary-color);
+            color: black;
+        }
+        
+    }
+    ::placeholder{
+        color: white;
+    }
+
+    button{
+        width: 120px;
+        color: var(--secondary-color);
+        background-color: transparent;
+        border: 2px solid var(--secondary-color);
+        padding: 8px 5px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            background-color: var(--secondary-color);
+            color: black;
+            border: 3px solid black 
+       }
+
+    }
+}
+
+.intentos{
+    justify-content: space-between;
+    li{
+        display: flex;
+        justify-content: space-between;
+        
+        padding: 5px;
+        border: 2px solid var(--primary-color);
+        margin: 10px 0;
+        border-radius: 5px;
+        background-color: var(--secondary-color);
+    }
+
 }
 
 span{
     color: var(--secondary-color);
 }
 
-#formulario {
-    .input{
-        text-align: center;
-        margin: 20px;
-    }
-    .button{
-        text-align: center;
-        
-    }
+
+.comun-style{
+    border-radius: 10px; 
 }
 
-
-button{
-    color: white;
-    width: auto;
-    padding: 12px 20px;
-    border-radius: 10px;
-    background-color:var(--button-color);
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.5s;
-
-    &:hover{
-        background-color: var(--secondary-color);
-        color: black;
-    }
+i{
+    display: block;
+    margin: 0 5px;
 }
-
-
-
-input {
+.carta-style{
     width: 100%;
-    max-width: 400px;
-    height: 50px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid var(--secondary-color);
-    border-radius: 10px;
-    color: black;
-    transition: all 0.3s ease-in-out;
+    max-width: 300px;
+    figure{
+        padding: 0 10px;
+        i{
+            padding: 5px; 
+        }
+        img{
+            border-radius: 10px;
+        }
+    }
+    .apodo{
+        font-weight: bold;
+        text-align: center;
+        padding: 10px 0 0 0;
+        font-style: italic;
+    }
+    .descripcion{
+        margin: 8px;
+        padding: 5px;
+        border-top: 1px solid black;
+        border-bottom:  1px solid black; ;
+        background-color: white;
+        background-blend-mode: darken;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    .estadisticas{
+        text-align: center;
+        justify-content: space-between;
+        margin: 10px 10px;
+       
+    }
+    .nombre-superior{
+        display: flex;
+        margin: 10px;
+        align-items: center;
+        justify-content: space-between;
+        :last-child{
+            font-size: 200%;
+        }
+    }
 }
 
-
-.mi-estilo {
-    border: 2px solid var(--secondary-color);
-    box-shadow: 10px 10px 10px black;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 10px;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+.carta-1, .carta-2, .carta-3, .carta-4, .carta-5, .carta-6, .carta-7, .carta-8{
+    transform: translateY(-500%);
 }
 
+.mostrar{
+    transform: translateX(0);
+}
 
+.eliminar{
+    background-color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+    border: 2px solid black;
+    
+    &:hover{
+        cursor: pointer;
+        color: white;
+        border: 2px solid red;
+        background-color: red;
+    }
+    
+}
 
 
 
