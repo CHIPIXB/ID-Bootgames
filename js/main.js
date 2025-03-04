@@ -19,7 +19,6 @@ function getDataForm(event){
     }
   }else{
     guardarEnLocalStorage(nombre,apodo)
-    añadirALaLista(nombre, apodo)
   }
   form.reset()
 }
@@ -46,9 +45,18 @@ function añadirALaLista(nombre, apodo){
 function guardarEnLocalStorage(nombre, apodo){
   let intentosGuardados = JSON.parse(localStorage.getItem("intentos")) || [];
 
+  const nombreApodoRepetido = intentosGuardados.some(obj => obj.nombre.toLowerCase() === nombre.toLowerCase() && obj.apodo.toLowerCase() === apodo.toLowerCase());
+
+  if (nombreApodoRepetido) {
+    alert("Ya le intentaste poner ese apodo a ese nombre, cambia alguno de los dos");
+    return;
+  }
+
   intentosGuardados.push({nombre, apodo})
 
   localStorage.setItem("intentos", JSON.stringify(intentosGuardados))
+
+  añadirALaLista(nombre, apodo)
 }
 
 function cargarDesdeLocalStorage() {

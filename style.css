@@ -15,7 +15,7 @@ img{
 }
 
 header{
-    width: 100%;
+    width: 100vw;
     height: 60px;
     background-color: var(--primary-color);
     align-content: center;
@@ -35,12 +35,11 @@ header{
 .container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    height: 90vh;
     margin: 0 auto;
     gap: 10px;
     margin-top: 10px;
-
 }
+
 
 #cartas-izquierda{
     display: grid;
@@ -50,22 +49,26 @@ header{
     margin-left: 10px;
 
     .carta-1{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
         grid-column: 1/2;
-        background-color: green;
         transition: 1s;
     }
     .carta-2{
-        background-color: violet;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
         grid-row: 2/3;
         transition: 1s;
         
     }
     .carta-3{
-        background-color: rebeccapurple;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
         transition: 1s;
     }
     .carta-4{
-        background-color: aqua;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
         transition: 1s;
     }
 }
@@ -77,24 +80,37 @@ header{
     gap: 10px;
     margin-right: 10px;
     .carta-5{
-        background-color: salmon;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        background-color: teal;
         transition: 1s;
+        
     }
     .carta-6{
-        background-color: gold;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
+        background-color: lightgreen;
         transition: 1s;
+        
     }
     .carta-7{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
         background-color: sandybrown;
         transition: 1s;
+        
     }
     .carta-8{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINmRza4Aiwa6AiHrIsfmFthkG-BFnydtIkg&s);
+        background-size: cover;
         background-color: red;
         transition: 1s;
+        
     }
 }
 
 #instrucciones{
+    grid-column: 2/3;
     border-radius: 10px;
     background-image: url(https://wallpapersok.com/images/high/historic-calle-gran-via-madrid-0wrm4t5v9unirmd7.jpg);
     background-blend-mode: darken;
@@ -103,6 +119,8 @@ header{
     background-size: cover;
     padding: 25px;
     box-shadow: 0px 10px 10px;
+    /* height: auto; */
+
 
     .parrafos{
         color: white;
@@ -196,8 +214,11 @@ span{
 
 i{
     display: block;
+    margin: 0 5px;
 }
 .carta-style{
+    width: 100%;
+    max-width: 300px;
     figure{
         padding: 0 10px;
         i{
@@ -218,11 +239,15 @@ i{
         padding: 5px;
         border-top: 1px solid black;
         border-bottom:  1px solid black; ;
+        background-color: white;
+        background-blend-mode: darken;
+        background-color: rgba(0, 0, 0, 0.2);
     }
     .estadisticas{
-       display: flex;
-       justify-content: space-between;
-       margin: 0 20px;
+        text-align: center;
+        justify-content: space-between;
+        margin: 10px 10px;
+       
     }
     .nombre-superior{
         display: flex;
@@ -235,12 +260,8 @@ i{
     }
 }
 
-.carta-1, .carta-2, .carta-3, .carta-4{
-    transform: translateX(-500%);
-}
-
-.carta-5, .carta-6, .carta-7, .carta-8{
-    transform: translateX(500%);
+.carta-1, .carta-2, .carta-3, .carta-4, .carta-5, .carta-6, .carta-7, .carta-8{
+    transform: translateY(-500%);
 }
 
 .mostrar{
@@ -264,5 +285,3 @@ i{
 
 
 
-
-@import url(mediaquery.css);
